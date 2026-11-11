@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event selection</title>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@latest/dist/email.min.js"></script>
+    <script>
+        (function() {
+            emailjs.init("DMsxxmnFkkyvSFBTt"); //replace w real public key
+        })();
+    </script>
+    <link rel="stylesheet" href="event_style.css">
+</head>
+<body>
+    <div class="booking-container">
+        <h2>Book Your Movie Tickets</h2>
+        <div class="form-groups">
+            <label for="movie">Choose a Movie: </label>
+            <select id="movie">
+                <option value="avengers">Avengers: Endgame</option>
+                <option value="spiderman">Spider-Man: No Way Home</option>
+                <option value="minions">Minions</option>
+                <option value="dogspurpose">A Dog's Purpose</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="date">Choose a Date: </label>
+            <input type="date" id="date">
+            <label for="time">Choose a Time: </label>
+            <select id="time">
+                <option value="10:00">10:00 AM</option>
+                <option value="12:00">12:00 PM</option>
+                <option value="1:00">1:00 PM</option>
+                <option value="4:00">4:00 PM</option>
+                <option value="7:00">7:00 PM</option>
+                <option value="10:00p">10:00 PM</option>
+            </select>
+        </div>
+        <div id="seat-container"></div>
+        <button class="btn-book" onclick="showBill()">Book Tickets</button>
+    </div>
+    <div id="overlay"></div>
+    <div id="bill-popup">
+        <h3>Booking Overview</h3>
+        <h3>Booking Overview</h3>
+        <p id="bill-details"></p>
+        <button class="btn-confirm" onclick="makePayment()">Confirm Payment</button>
+        <button class="btn-close" onclick="closeBill()">Close</button>
+    </div>
+    <script src="event_script.js"></script>
+</body>
+</html>
